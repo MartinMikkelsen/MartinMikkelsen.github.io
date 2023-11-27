@@ -1,1 +1,1 @@
-Personal page for notes: https://martinmikkelsen.github.io
+Personal page: https://martinmikkelsen.github.io
