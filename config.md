@@ -20,3 +20,19 @@ website_url   = "https://martinmikkelsen.github.io"
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\scal}[1]{\langle #1 \rangle}
+\newcommand{\card}[5]{
+  @@card
+    ![#1](/assets/img/team/!#2.jpg)
+    @@container
+      ~~~
+      <h2>#1</h2>
+      ~~~
+      @@title #3 @@
+      @@vitae #4 @@
+      @@email #5 @@
+      ~~~
+      <p><button class="button">Contact</button></p>
+      ~~~
+    @@
+  @@
+}

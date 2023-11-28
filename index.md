@@ -1,13 +1,9 @@
 @def title = "Martin Mikkelsen, personal page"
 @def tags = ["syntax", "code"]
 
-# Posts
-
 \tableofcontents 
 
 ## FewSpecialFunctions.jl
-
-[some image]: https://upload.wikimedia.org/wikipedia/commons/9/90/Krul.svg
 
 I have implemented a few special functions in the Julia language. Few special functions in Julia. Includes Clausen function, Coulomb wave functions, Debye function, Fresnel functions, Struve function, Hypergeometric functions, Confluent hypergeometric functions, Fermi-Dirac functions.
 

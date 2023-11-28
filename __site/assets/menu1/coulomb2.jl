@@ -11,3 +11,4 @@ plot!(x,regular_Coulomb.(2,5,x), label=L"F_2(5,ρ)")
 plot!(x,regular_Coulomb.(3,5,x), label=L"F_3(5,ρ)")
 title!("Regular Coulomb Wave Functions")
 xlabel!(L"ρ")
+savefig(joinpath(@OUTPUT, "Coulomb2.png")) # hide
