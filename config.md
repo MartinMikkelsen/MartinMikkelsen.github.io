@@ -15,7 +15,7 @@ ignore = ["node_modules/"]
 generate_rss = true
 website_title = "Martin Mikkelsen"
 website_descr = "Personal page"
-website_url   = "https://martinmikkelsen.github.io"
+website_url   = "https://martinmikkelsen.github.io/home"
 +++
 
 \newcommand{\R}{\mathbb R}
