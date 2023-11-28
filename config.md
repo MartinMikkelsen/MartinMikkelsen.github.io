@@ -1,6 +1,5 @@
 +++
 author = "Martin Mikkelsen"
-mintoclevel = 2
 
 prepath = ""
 # uncomment and adjust the following line if the expected base URL of your website is something like [www.thebase.com/yourproject/]
@@ -17,7 +16,7 @@ ignore = ["node_modules/"]
 generate_rss = true
 website_title = "Martin Mikkelsen"
 website_descr = "Personal page"
-website_url   = "https://martinmikkelsen.github.io/home"
+website_url   = "https://martinmikkelsen.github.io"
 +++
 
 \newcommand{\R}{\mathbb R}
