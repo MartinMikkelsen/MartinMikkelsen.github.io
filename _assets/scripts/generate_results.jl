@@ -25,4 +25,3 @@ genplain("script1.jl")
 # plots
 
 include("script2.jl")
-include("Coulomb1.jl")
