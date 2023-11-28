@@ -1,6 +1,3 @@
-@def title = "Martin Mikkelsen, personal page"
-@def tags = ["syntax", "code"]
-
 \tableofcontents 
 
 ## FewSpecialFunctions.jl
