@@ -1,5 +1,3 @@
-
-
 - [Github](https://github.com/MartinMikkelsen)
 - [StackExchange](https://scicomp.stackexchange.com/users/42830/mmikkelsen)
 - [Linkedin](https://www.linkedin.com/in/martinmikkelsen1/)
