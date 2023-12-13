@@ -250,12 +250,12 @@ which will print
 result = singularity_integral + regular_integral = [1.6837899364901885 -0.7050512093960599 -0.03988519645256732; -0.7050512093960599 1.6439047399317526 -0.7050512098966073; -0.03988519645256732 -0.7050512098966073 1.683789936502625]
 error = singularity_error + regular_error = 3.822238569033589e-8
 ```
-Alternatively, you can also look into something like [Cauchy principal values][1] and [this example][2]
+Alternatively, you can also look into something like [Cauchy principal values][https://en.wikipedia.org/wiki/Cauchy_principal_value] and [this example][https://juliamath.github.io/QuadGK.jl/stable/quadgk-examples/#Cauchy-principal-values]
 
 
 --Edit: update to new information--
 
-I'm afraid I can't reproduce the same error. When I run your code (I've added using LinearAlgebra for [diagm][3]) I get 
+I'm afraid I can't reproduce the same error. When I run your code (I've added using LinearAlgebra for [diagm][https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/#LinearAlgebra.diagm]) I get 
 ```
 res2 = [15.354655632950173 -6.419790221101635 -0.3665284746983265; -6.419790221101635 14.988127158828647 -6.4197902215468154; -0.3665284746983265 -6.4197902215468154 15.354655632887033]
 norm(res2 + As) / norm(As) = 0.018647374162762107
@@ -263,8 +263,3 @@ norm(res1 + As) / norm(As) = 0.01864737561229984
 norm(res1 - res2) = 4.9872522079524005e-8
 4.9872522079524005e-8
 ```
-
-
-  [1]: https://en.wikipedia.org/wiki/Cauchy_principal_value
-  [2]: https://juliamath.github.io/QuadGK.jl/stable/quadgk-examples/#Cauchy-principal-values
-  [3]: https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/#LinearAlgebra.diagm
