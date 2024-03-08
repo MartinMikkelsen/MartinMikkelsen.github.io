@@ -1,1 +1,104 @@
-<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/css/franklin.css"> <link rel=stylesheet  href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Source+Code+Pro:400,700" type="text/css"> <link rel=stylesheet  href="/css/font-awesome.min.css"> <link rel=stylesheet  href="/css/celeste.min.css"> <link rel=icon  type="image/png" sizes=192x192  href="/assets/favicon.png"> <link rel="shortcut icon" href="/assets/favicon.ico"> <link rel=apple-touch-icon-precomposed  sizes=152x152  href="/assets/apple-touch-icon.png"> <title>Martin Mikkelsen</title> <header> <nav class=nav-main > <ul> <li class=hvr-underline-reveal ><a href="/">Home</a> <li class=hvr-underline-reveal ><a href="/menu1/">Code</a> <li class=logo ><a class=hvr-ripple-out  href="/">M</a> <li class=hvr-underline-reveal ><a href="/menu3.md">Misc</a> <li class=hvr-underline-reveal ><a href="/menu2/">About</a> </ul> </nav> </header> <div class=franklin-content ><p><div class=franklin-toc ><ol><li><a href="#fewspecialfunctionsjl">FewSpecialFunctions.jl</a><ol><li><a href="#overview">Overview</a><li><a href="#details_of_the_implementations">Details of the Implementations</a></ol><li><a href="#masters_thesis">Master&#39;s thesis</a><ol><li><a href="#introduction">Introduction</a><li><a href="#model_overview">Model overview</a><li><a href="#conclusion">Conclusion</a></ol><li><a href="#poster_presentation_at_dansk_fysisk_selskab">Poster presentation at Dansk Fysisk Selskab</a><li><a href="#paper_published">Paper published</a></ol></div> </p> <h2 id=fewspecialfunctionsjl ><a href="#fewspecialfunctionsjl" class=header-anchor >FewSpecialFunctions.jl</a></h2> <h3 id=overview ><a href="#overview" class=header-anchor >Overview</a></h3> <p>This post outlines the recent implementation of several special functions in the Julia programming language. These functions are primarily of interest in scientific and mathematical computing.</p> <h3 id=details_of_the_implementations ><a href="#details_of_the_implementations" class=header-anchor >Details of the Implementations</a></h3> <ul> <li><p>The Clausen function, relevant in certain areas of number theory.</p> <li><p>Coulomb wave functions, useful in quantum scattering theory.</p> <li><p>Debye function, used in solid-state physics, particularly in the study of heat capacities at low temperatures.</p> <li><p>Fresnel Functions, related to optics, specifically in the context of diffraction and interference.</p> <li><p>Struve Function, finds use in certain wave equation solutions.</p> <li><p>Hypergeometric Functions, these functions are versatile and find applications in various fields, including physics and statistics.</p> <li><p>Confluent Hypergeometric Functions, a subset of hypergeometric functions, these are particularly relevant in theoretical physics. </p> <li><p>Fermi-Dirac Functions, important in studying quantum systems at finite temperatures.</p> </ul> <figure style="text-align:center;"> <img src="/assets/combinedplot.png" style="padding:0; width:100%;border: 2px solid white;" alt=" Some functions"/> <figcaption> Some functions</figcaption> </figure> <h2 id=masters_thesis ><a href="#masters_thesis" class=header-anchor >Master&#39;s thesis</a></h2> <h3 id=introduction ><a href="#introduction" class=header-anchor >Introduction</a></h3> <p>This thesis presents a study on pion photoproduction off nucleons near the threshold, utilizing a nuclear model that incorporates explicit mesons. The approach deviates from conventional potential-based interactions between nucleons, focusing instead on meson emissions and absorptions.</p> <h3 id=model_overview ><a href="#model_overview" class=header-anchor >Model overview</a></h3> <p>The core aspect of this model is the explicit treatment of mesons, rather than describing nucleon interactions through a potential. This approach is based on the premise that nucleons interact by emitting and absorbing mesons. The study limits its scope to the one meson approximation, simplifying the complex interactions within the system. This approximation is crucial for focusing on specific interactions without the computational complexity of multiple meson exchanges. The thesis specifically targets cases where the mesons involved are pions. This choice is due to the significance of pions in nuclear physics and their role in nucleon interactions.</p> <h3 id=conclusion ><a href="#conclusion" class=header-anchor >Conclusion</a></h3> <p>The thesis provides insights into the dynamics of pion photoproduction using a novel meson-based nuclear model. The findings contribute to the broader understanding of nucleon interactions and offer a different perspective from traditional potential-based models.</p> <p> <figure style="text-align:center;"> <img src="/assets/crossfit_rel.pdf" style="padding:0; width:100%;border: 2px solid white;" alt=" Total cross section as a function of photon energy"/> <figcaption> Total cross section as a function of photon energy</figcaption> </figure> <figure style="text-align:center;"> <img src="/assets/MultiDiffcross_rel.pdf" style="padding:0; width:100%;border: 2px solid white;" alt=" Differential cross section"/> <figcaption> Differential cross section</figcaption> </figure> </p> <h2 id=poster_presentation_at_dansk_fysisk_selskab ><a href="#poster_presentation_at_dansk_fysisk_selskab" class=header-anchor >Poster presentation at Dansk Fysisk Selskab</a></h2> <p>I had a poster presentation at dansk fysisk selskab. Here is the poster. <figure style="text-align:center;"> <img src="/assets/PhotoproductionPoster.pdf" style="padding:0; width:100%;border: 2px solid white;" alt=" Poster"/> <figcaption> Poster</figcaption> </figure> </p> <h2 id=paper_published ><a href="#paper_published" class=header-anchor >Paper published</a></h2> <p>We apply the nuclear model with explicit mesons to photoproduction of neutral pions off protons at the threshold. In this model the nucleons do not interact with each other via a potential but rather emit and absorb mesons that are treated explicitly on equal footing with the nucleons. We calculate the total cross section of the reaction for energies close to threshold and compare the calculations with available experimental data. We show that the model is able to reproduce the experimental data and determine the range of the parameters where the model is compatible with the experiment.</p> <figure style="text-align:center;"> <img src="/assets/fit.png" style="padding:0; width:100%;border: 2px solid white;" alt=" Total cross section"/> <figcaption> Total cross section</figcaption> </figure> <div class=page-foot > <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> Martin Mikkelsen. Last modified: November 29, 2023. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" href="/css/franklin.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Source+Code+Pro:400,700" type="text/css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/celeste.min.css">
+
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon.png">
+<link rel="shortcut icon" href="/assets/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/apple-touch-icon.png">
+
+   <title>Martin Mikkelsen</title>  
+</head>
+<body>
+  <header>
+<nav class="nav-main">
+  <ul>
+    <li class="hvr-underline-reveal"><a href="/">Home</a></li>
+    <li class="hvr-underline-reveal"><a href="/menu1/">Code</a></li>
+    <li class="logo"><a class="hvr-ripple-out" href="/">M</a></li>
+    <li class="hvr-underline-reveal"><a href="/menu3.md">Misc</a></li>
+    <li class="hvr-underline-reveal"><a href="/menu2/">About</a></li>
+  </ul>
+</nav>
+</header>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><p><div class="franklin-toc"><ol><li><a href="#fewspecialfunctionsjl">FewSpecialFunctions.jl</a><ol><li><a href="#overview">Overview</a></li><li><a href="#details_of_the_implementations">Details of the Implementations</a></li></ol></li><li><a href="#masters_thesis">Master&#39;s thesis</a><ol><li><a href="#introduction">Introduction</a></li><li><a href="#model_overview">Model overview</a></li><li><a href="#conclusion">Conclusion</a></li></ol></li><li><a href="#poster_presentation_at_dansk_fysisk_selskab">Poster presentation at Dansk Fysisk Selskab</a></li><li><a href="#paper_published">Paper published</a></li></ol></div> </p>
+<h2 id="fewspecialfunctionsjl"><a href="#fewspecialfunctionsjl" class="header-anchor">FewSpecialFunctions.jl</a></h2>
+<h3 id="overview"><a href="#overview" class="header-anchor">Overview</a></h3>
+<p>This post outlines the recent implementation of several special functions in the Julia programming language. These functions are primarily of interest in scientific and mathematical computing.</p>
+<h3 id="details_of_the_implementations"><a href="#details_of_the_implementations" class="header-anchor">Details of the Implementations</a></h3>
+<ul>
+<li><p>The Clausen function, relevant in certain areas of number theory.</p>
+</li>
+<li><p>Coulomb wave functions, useful in quantum scattering theory.</p>
+</li>
+<li><p>Debye function, used in solid-state physics, particularly in the study of heat capacities at low temperatures.</p>
+</li>
+<li><p>Fresnel Functions, related to optics, specifically in the context of diffraction and interference.</p>
+</li>
+<li><p>Struve Function, finds use in certain wave equation solutions.</p>
+</li>
+<li><p>Hypergeometric Functions, these functions are versatile and find applications in various fields, including physics and statistics.</p>
+</li>
+<li><p>Confluent Hypergeometric Functions, a subset of hypergeometric functions, these are particularly relevant in theoretical physics. </p>
+</li>
+<li><p>Fermi-Dirac Functions, important in studying quantum systems at finite temperatures.</p>
+</li>
+</ul>
+
+<figure style="text-align:center;">
+<img src="/assets/combinedplot.png" style="padding:0; width:100%;border: 2px solid white;" alt=" Some functions"/>
+<figcaption> Some functions</figcaption>
+</figure>
+
+<h2 id="masters_thesis"><a href="#masters_thesis" class="header-anchor">Master&#39;s thesis</a></h2>
+<h3 id="introduction"><a href="#introduction" class="header-anchor">Introduction</a></h3>
+<p>This thesis presents a study on pion photoproduction off nucleons near the threshold, utilizing a nuclear model that incorporates explicit mesons. The approach deviates from conventional potential-based interactions between nucleons, focusing instead on meson emissions and absorptions.</p>
+<h3 id="model_overview"><a href="#model_overview" class="header-anchor">Model overview</a></h3>
+<p>The core aspect of this model is the explicit treatment of mesons, rather than describing nucleon interactions through a potential. This approach is based on the premise that nucleons interact by emitting and absorbing mesons. The study limits its scope to the one meson approximation, simplifying the complex interactions within the system. This approximation is crucial for focusing on specific interactions without the computational complexity of multiple meson exchanges. The thesis specifically targets cases where the mesons involved are pions. This choice is due to the significance of pions in nuclear physics and their role in nucleon interactions.</p>
+<h3 id="conclusion"><a href="#conclusion" class="header-anchor">Conclusion</a></h3>
+<p>The thesis provides insights into the dynamics of pion photoproduction using a novel meson-based nuclear model. The findings contribute to the broader understanding of nucleon interactions and offer a different perspective from traditional potential-based models.</p>
+<p>
+<figure style="text-align:center;">
+<img src="/assets/crossfit_rel.png" style="padding:0; width:100%;border: 2px solid white;" alt=" Total cross section as a function of photon energy"/>
+<figcaption> Total cross section as a function of photon energy</figcaption>
+</figure>
+ 
+<figure style="text-align:center;">
+<img src="/assets/MultiDiffcross_rel.png" style="padding:0; width:100%;border: 2px solid white;" alt=" Differential cross section"/>
+<figcaption> Differential cross section</figcaption>
+</figure>
+</p>
+<h2 id="poster_presentation_at_dansk_fysisk_selskab"><a href="#poster_presentation_at_dansk_fysisk_selskab" class="header-anchor">Poster presentation at Dansk Fysisk Selskab</a></h2>
+<p>I had a poster presentation at dansk fysisk selskab. Here is the poster. 
+<figure style="text-align:center;">
+<img src="/assets/PhotoproductionPoster.png" style="padding:0; width:100%;border: 2px solid white;" alt=" Poster"/>
+<figcaption> Poster</figcaption>
+</figure>
+</p>
+<h2 id="paper_published"><a href="#paper_published" class="header-anchor">Paper published</a></h2>
+<p>We apply the nuclear model with explicit mesons to photoproduction of neutral pions off protons at the threshold. In this model the nucleons do not interact with each other via a potential but rather emit and absorb mesons that are treated explicitly on equal footing with the nucleons. We calculate the total cross section of the reaction for energies close to threshold and compare the calculations with available experimental data. We show that the model is able to reproduce the experimental data and determine the range of the parameters where the model is compatible with the experiment.</p>
+
+<figure style="text-align:center;">
+<img src="/assets/fit.png" style="padding:0; width:100%;border: 2px solid white;" alt=" Total cross section"/>
+<figcaption> Total cross section</figcaption>
+</figure>
+
+<div class="page-foot">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> Martin Mikkelsen. Last modified: March 08, 2024.
+    Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
+</div>
+</div><!-- CONTENT ENDS HERE -->
+    
+    
+  </body>
+</html>

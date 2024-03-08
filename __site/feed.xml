@@ -69,7 +69,7 @@
     end
     real_integral &#61; quadgk&#40;real_func,a,b&#41;
     imag_integral &#61; quadgk&#40;imag_func,a,b&#41;
-    return real_integral<a href="https://en.wikipedia.org/wiki/Cauchy_principal_value">1</a> &#43; 1im*imag_integral<a href="https://en.wikipedia.org/wiki/Cauchy_principal_value">1</a>
+    return real_integral<a href="https://docs.sciml.ai/MethodOfLines/stable">1</a> &#43; 1im*imag_integral<a href="https://docs.sciml.ai/MethodOfLines/stable">1</a>
 end</code></pre>
 <p>And we can now define the regular and irregular Coulomb wave functions</p>
 <pre><code class="language-julia">function regular_coulomb&#40;ℓ,η,ρ&#41;
@@ -108,7 +108,7 @@ xlabel&#33;&#40;L&quot;ρ&quot;&#41;</code></pre>
 \[u(0,y)=a, \quad u_x(0,y) = b\]
 \[u(x,0)=c, \quad u_y(x,0) = d\]
 <h3 id="solution">Solution </h3>
-<p>Use something like <a href="https://en.wikipedia.org/wiki/Cauchy_principal_value">MethodOfLines.jl</a> to solve your problem. Modify the following <a href="https://juliamath.github.io/QuadGK.jl/stable/quadgk-examples/#Cauchy-principal-values">example</a>, something like this </p>
+<p>Use something like <a href="https://docs.sciml.ai/MethodOfLines/stable">MethodOfLines.jl</a> to solve your problem. Modify the following <a href="https://docs.sciml.ai/MethodOfLines/stable/tutorials/heatss/">example</a>, something like this </p>
 <pre><code class="language-julia">using ModelingToolkit, MethodOfLines, DomainSets, NonlinearSolve@parameters x y
 @variables u&#40;..&#41;Dx &#61; Differential&#40;x&#41;
 Dy &#61; Differential&#40;y&#41;
@@ -176,15 +176,14 @@ regular_integral, regular_error &#61; quadgk&#40;h, 1e-5, Inf&#41;
 &#40;res, err&#41; &#61; quadgk&#40;g, 0, Inf&#41; &#61; &#40;1.7402976255082268, 2.515036776166618e-8&#41;
 result &#61; singularity_integral &#43; regular_integral &#61; &#91;1.6837899364901885 -0.7050512093960599 -0.03988519645256732; -0.7050512093960599 1.6439047399317526 -0.7050512098966073; -0.03988519645256732 -0.7050512098966073 1.683789936502625&#93;
 error &#61; singularity_error &#43; regular_error &#61; 3.822238569033589e-8</code></pre>
-<p>Alternatively, you can also look into something like <a href="https://en.wikipedia.org/wiki/Cauchy_principal_value">Cauchy principal values</a> and <a href="https://juliamath.github.io/QuadGK.jl/stable/quadgk-examples/#Cauchy-principal-values">this example</a></p>
+<p>Alternatively, you can also look into something like &#91;Cauchy principal values&#93;&#91;https://en.wikipedia.org/wiki/Cauchy<em>principal</em>value&#93; and &#91;this example&#93;&#91;https://juliamath.github.io/QuadGK.jl/stable/quadgk-examples/#Cauchy-principal-values&#93;</p>
 <p>–Edit: update to new information–</p>
-<p>I&#39;m afraid I can&#39;t reproduce the same error. When I run your code &#40;I&#39;ve added using LinearAlgebra for <a href="https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/#LinearAlgebra.diagm">diagm</a>&#41; I get </p>
+<p>I&#39;m afraid I can&#39;t reproduce the same error. When I run your code &#40;I&#39;ve added using LinearAlgebra for &#91;diagm&#93;&#91;https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/#LinearAlgebra.diagm&#93;&#41; I get </p>
 <pre><code class="language-julia">res2 &#61; &#91;15.354655632950173 -6.419790221101635 -0.3665284746983265; -6.419790221101635 14.988127158828647 -6.4197902215468154; -0.3665284746983265 -6.4197902215468154 15.354655632887033&#93;
 norm&#40;res2 &#43; As&#41; / norm&#40;As&#41; &#61; 0.018647374162762107
 norm&#40;res1 &#43; As&#41; / norm&#40;As&#41; &#61; 0.01864737561229984
 norm&#40;res1 - res2&#41; &#61; 4.9872522079524005e-8
 4.9872522079524005e-8</code></pre>
-<p>  </p>
  ]]>
   </content:encoded>
     

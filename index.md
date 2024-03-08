@@ -45,14 +45,14 @@ The core aspect of this model is the explicit treatment of mesons, rather than d
 
 The thesis provides insights into the dynamics of pion photoproduction using a novel meson-based nuclear model. The findings contribute to the broader understanding of nucleon interactions and offer a different perspective from traditional potential-based models.
 
-\figenv{Total cross section as a function of photon energy}{/assets/crossfit_rel.pdf}{width:100%;border: 2px solid white;}
-\figenv{Differential cross section}{/assets/MultiDiffcross_rel.pdf}{width:100%;border: 2px solid white;}
+\figenv{Total cross section as a function of photon energy}{/assets/crossfit_rel.png}{width:100%;border: 2px solid white;}
+\figenv{Differential cross section}{/assets/MultiDiffcross_rel.png}{width:100%;border: 2px solid white;}
 
 
 ## Poster presentation at Dansk Fysisk Selskab
 
 I had a poster presentation at dansk fysisk selskab. Here is the poster.
-\figenv{Poster}{/assets/PhotoproductionPoster.pdf}{width:100%;border: 2px solid white;}
+\figenv{Poster}{/assets/PhotoproductionPoster.png}{width:100%;border: 2px solid white;}
 
 ## Paper published
 
