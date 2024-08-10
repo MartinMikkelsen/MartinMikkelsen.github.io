@@ -10,6 +10,7 @@
 
 ## Work
 
+- PhD student Quantum Information, University of Copenhagen
 - AI DevOps Engineer @ Terma. 
 - Data Scientist (DevOps) @ Terma   
 - Personal assistant, Center of Functionally Integrative Neuroscience, Aarhus University
