@@ -87,5 +87,5 @@ reaction_endpoint = "https://example.com/api/reaction"
 footer_copyright = "© 2025 Martin Mikkelsen"
 
 not_found_title = "404"
-not_found_error_text = "Not Found"
+not_found_error_text = "404 Not Found"
 not_found_recover_text = "« back to home »"
