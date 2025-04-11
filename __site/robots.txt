@@ -1,4 +1,0 @@
-Sitemap: https://martinmikkelsen.github.io/sitemap.xml
-
-User-agent: *
-Disallow:
