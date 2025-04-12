@@ -1,4 +1,4 @@
-base_url = "https://martinmikkelsen.github.io/"      # Domain name of your website
+base_url = "https://MartinMikkelsen.github.io/"      # Domain name of your website
 title = "Martin Mikkelsen"
 description = "PhD student @ University of Copenhagen"
 default_language = "en"
