@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  
+  
+    
+  
+  <meta name="description" content="Coulomb wave functions">
+
+  <title>Numerical implementation of the Coulomb wave functions</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  
+  <style>
+
+  /* light mode colors */
+  body {
+    --primary-color: #5871a2;
+    --primary-pale-color: #5871a210;
+    --text-color: #3C4043;
+    --text-pale-color: #a3a5a9;
+    --bg-color: #ffffff;
+    --highlight-mark-color: #5f75b035;
+    --blockquote-color: #8e8d91;
+
+    --callout-note-color: #5871a2;
+    --callout-important-color: #8062b0;
+    --callout-warning-color: #936e51;
+    --callout-alert-color: #bc5252;
+    --callout-question-color: #477389;
+    --callout-tip-color: #3c8460;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #5d77ac;
+    --primary-pale-color: #5d77ac20;
+    --text-color: #9197a5;
+    --text-pale-color: #656a74;
+    --bg-color: #18191b;
+    --highlight-mark-color: #5f75b035;
+    --blockquote-color: #747983;
+
+    --callout-note-color: #5d77ac;
+    --callout-important-color: #8062b0;
+    --callout-warning-color: #936e51;
+    --callout-alert-color: #bc5252;
+    --callout-question-color: #477389;
+    --callout-tip-color: #3c8460;
+  }
+
+  /* typography */
+  body {
+    --main-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --homepage-max-width: 768px;
+    --main-max-width: 768px;
+    --avatar-size: 56px;
+    --homepage-font-size: 16px;
+    --homepage-line-height: 1.75;
+    --paragraph-font-size: 16px;
+    --paragraph-line-height: 1.75;
+    --aside-font-size: 15px;
+    --img-border-radius: 0px;
+    --detail-border-radius: 0px;
+    --dark-mode-img-brightness: 0.75;
+    --dark-mode-chart-brightness: 0.75;
+    --inline-code-border-radius: 2px;
+    --inline-code-bg-color: var(--primary-pale-color);
+    --block-code-border-radius: 0px;
+    --block-code-border-color: var(--primary-color);
+    --detail-border-color: var(--primary-color);
+  }
+
+</style>
+
+  <link rel="stylesheet" href="/main.css">
+  
+
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+
+  
+</head>
+
+<body class="post">
+  
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches
+    if ((theme && theme == 'dark') || (!theme && match)) {
+      document.body.classList.add('dark');
+      const hl = document.querySelector('link#hl');
+      if (hl) hl.href = '/hl-dark.css';
+    }
+  </script>
+  
+  
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside>
+    
+    
+    <nav>
+      <ul>
+        
+        <li>
+          <a class="h2" href="#coulomb-wave-funcitons">Coulomb Wave Funcitons</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#examples">Examples</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    <button id="back-to-top" aria-label="back to top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M11.9997 10.8284L7.04996 15.7782L5.63574 14.364L11.9997 8L18.3637 14.364L16.9495 15.7782L11.9997 10.8284Z" fill="currentColor"></path></svg>
+    </button>
+    
+  </aside>
+  <main>
+    
+<header>
+  <nav>
+    <a href="https:&#x2F;&#x2F;martinmikkelsen.github.io&#x2F;posts">← Back</a>
+  </nav>
+</header>
+
+
+    <div>
+      
+      
+      
+      
+      <div id="copy-cfg" style="display: none;" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;20&quot; height=&quot;20&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;20&quot; height=&quot;20&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;"></div>
+      
+      <article class="prose">
+        <h1>Numerical implementation of the Coulomb wave functions</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish">Nov 25, 2022</span>
+            </div>
+
+          
+        </div>
+
+        
+        
+
+        
+
+        <h2 id="coulomb-wave-funcitons">Coulomb Wave Funcitons<a class="zola-anchor" href="#coulomb-wave-funcitons" aria-label="Anchor link for: coulomb-wave-funcitons" style="visibility: hidden;"></a>
+</h2>
+<p>As a part of my master's thesis I had to make a numerical implementation of the Coulomb wave functions. The Coulomb wave equation for a charged particle with arbitrary angular momentum and charge is given by $$ \nabla^2\psi +\left( k^2-\frac{2\mu}{\hbar^2}V(r)\right)\psi = 0, $$ where $\mu$ is the reduced mass of the system. The radial wave function $u(r)$ satisfies the following differential equation $$ \frac{\text{d}^2 u_\ell}{\text{d}r^2}+\left( k^2-\frac{\ell(\ell+1)}{r^2}-\frac{2\mu}{\hbar^2}\frac{Ze^2}{r}\right)u_\ell=0, $$ where $Z$ is the product of the charges. Two independent solutions can be found to this equation -- these are called the regular and irregular Coulomb wave functions denoted $F_\ell(r)$ and $G_\ell(r)$ respectively. The regular Coulomb wave function $F_\ell(r)$ is a real function that vanishes at $r=0$ and the behaviour of the function is described using a parameter $\eta$ which describes how strongly the Coulomb interaction is $$ \eta = \frac{Zmc\alpha }{\hbar k}, $$ where $m$ is the mass of the particle, $k$ is the wave number and $\alpha$ is the fine structure constant. The solution to is given by $$ F_\ell(\eta,kr) = C_\ell (\eta) (kr)^{\ell+1}\text{e}^{-ikr} {}1 F_1(\ell+1-i\eta,2\ell+2,2ikr), $$ where ${}1F_1(kr)$ is a confluent hypergeometric function and $C\ell(\eta)$ is a normalization constant given by $$ C\ell(\eta) = \frac{2^\ell \text{e}^{-\pi\eta/2}|\Gamma(\ell+1+i\eta)|}{(2\ell+1)!}, $$ where $\Gamma$ is the gamma function. For numerical purposes, it is useful to use the integral representation of the regular Coulomb wave function $$ F_\ell(\eta,\rho) = \frac{\rho^{\ell+1}2^\ell e^{i\rho-(\pi\eta/2)}}{|\Gamma(\ell+1+i\eta)|} \int_0^1 e^{-2i\rho t}t^{\ell+i\eta}(1-t)^{\ell-i\eta} , \text{d}t. $$</p>
+<p>This implementation will need the gamma function from <a rel="nofollow noreferrer" href="https://github.com/JuliaMath/SpecialFunctions.jl">SpecialFunctions.jl</a>. First we define complex integration</p>
+<pre data-lang="julia" class="language-julia z-code"><code class="language-julia" data-lang="julia"><span class="z-source z-julia"><span class="z-keyword z-other z-julia">using</span> QuadGK, SpecialFunctions, Plots
+</span><span class="z-source z-julia">
+</span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-keyword z-declaration z-function z-julia">function</span> <span class="z-entity z-name z-function z-julia"><span class="z-meta z-generic-name z-julia">complex_quadrature</span></span><span class="z-punctuation z-section z-parameters z-end z-julia">(</span><span class="z-meta z-function z-parameters z-julia">func<span class="z-punctuation z-separator z-parameters z-julia">,</span>a<span class="z-punctuation z-separator z-parameters z-julia">,</span>b<span class="z-punctuation z-section z-parameters z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    <span class="z-meta z-function z-julia"><span class="z-keyword z-declaration z-function z-julia">function</span> <span class="z-entity z-name z-function z-julia"><span class="z-meta z-generic-name z-julia">real_func</span></span><span class="z-punctuation z-section z-parameters z-end z-julia">(</span><span class="z-meta z-function z-parameters z-julia">x<span class="z-punctuation z-section z-parameters z-end z-julia">)</span></span>
+</span></span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-meta z-function z-julia">        <span class="z-keyword z-other z-julia">return</span> real<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>func<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>x<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-meta z-function z-julia">    <span class="z-keyword z-other z-julia">end</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    <span class="z-meta z-function z-julia"><span class="z-keyword z-declaration z-function z-julia">function</span> <span class="z-entity z-name z-function z-julia"><span class="z-meta z-generic-name z-julia">imag_func</span></span><span class="z-punctuation z-section z-parameters z-end z-julia">(</span><span class="z-meta z-function z-parameters z-julia">x<span class="z-punctuation z-section z-parameters z-end z-julia">)</span></span>
+</span></span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-meta z-function z-julia">        imag<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>func<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>x<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-meta z-function z-julia">    <span class="z-keyword z-other z-julia">end</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    real_integral <span class="z-keyword z-operator z-assignment z-julia">=</span> quadgk<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>real_func,a,b<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    imag_integral <span class="z-keyword z-operator z-assignment z-julia">=</span> quadgk<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>imag_func,a,b<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    <span class="z-keyword z-other z-julia">return</span> real_integral<span class="z-meta z-sequence z-julia"><span class="z-punctuation z-section z-sequence z-begin z-julia">[</span><span class="z-constant z-numeric z-julia">1</span><span class="z-punctuation z-section z-sequence z-end z-julia">]</span></span> <span class="z-keyword z-operator z-julia">+</span> <span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>imag_integral<span class="z-meta z-sequence z-julia"><span class="z-punctuation z-section z-sequence z-begin z-julia">[</span><span class="z-constant z-numeric z-julia">1</span><span class="z-punctuation z-section z-sequence z-end z-julia">]</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-keyword z-other z-julia">end</span></span>
+</span></code></pre>
+<p>And we can now define the regular and irregular Coulomb wave functions</p>
+<pre data-lang="julia" class="language-julia z-code"><code class="language-julia" data-lang="julia"><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-keyword z-declaration z-function z-julia">function</span> <span class="z-entity z-name z-function z-julia"><span class="z-meta z-generic-name z-julia">regular_coulomb</span></span><span class="z-punctuation z-section z-parameters z-end z-julia">(</span><span class="z-meta z-function z-parameters z-julia">ℓ<span class="z-punctuation z-separator z-parameters z-julia">,</span>η<span class="z-punctuation z-separator z-parameters z-julia">,</span>ρ<span class="z-punctuation z-section z-parameters z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    First <span class="z-keyword z-operator z-assignment z-julia">=</span> ρ<span class="z-keyword z-operator z-julia">^</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>ℓ<span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">*</span><span class="z-constant z-numeric z-julia">2</span><span class="z-keyword z-operator z-julia">^</span>ℓ<span class="z-keyword z-operator z-julia">*</span>exp<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>ρ<span class="z-keyword z-operator z-julia">-</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-language z-julia">π</span><span class="z-keyword z-operator z-julia">*</span>η<span class="z-keyword z-operator z-julia">/</span><span class="z-constant z-numeric z-julia">2</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">/</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>abs<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>gamma<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>ℓ<span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span><span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>η<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    Integral_value <span class="z-keyword z-operator z-assignment z-julia">=</span> complex_quadrature<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>t <span class="z-keyword z-operator z-julia">-&gt;</span> exp<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-keyword z-operator z-julia">-</span><span class="z-constant z-numeric z-julia">2</span><span class="z-keyword z-operator z-julia">*</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-broadcast z-julia">.</span><span class="z-keyword z-operator z-julia">*</span>ρ<span class="z-keyword z-operator z-julia">*</span>t<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">*</span>t<span class="z-keyword z-operator z-julia">^</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>ℓ<span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>η<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">*</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">1</span><span class="z-keyword z-operator z-julia">-</span>t<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">^</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>ℓ<span class="z-keyword z-operator z-julia">-</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>η<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>,<span class="z-constant z-numeric z-julia">0</span>,<span class="z-constant z-numeric z-julia">1</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    <span class="z-keyword z-other z-julia">return</span> First<span class="z-keyword z-operator z-broadcast z-julia">.</span><span class="z-keyword z-operator z-julia">*</span>Integral_value
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-keyword z-other z-julia">end</span></span>
+</span><span class="z-source z-julia">
+</span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-keyword z-declaration z-function z-julia">function</span> <span class="z-entity z-name z-function z-julia"><span class="z-meta z-generic-name z-julia">C</span></span><span class="z-punctuation z-section z-parameters z-end z-julia">(</span><span class="z-meta z-function z-parameters z-julia">ℓ<span class="z-punctuation z-separator z-parameters z-julia">,</span>η<span class="z-punctuation z-section z-parameters z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    <span class="z-keyword z-other z-julia">return</span> <span class="z-constant z-numeric z-julia">2</span><span class="z-keyword z-operator z-julia">^</span>ℓ<span class="z-keyword z-operator z-julia">*</span>exp<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-keyword z-operator z-julia">-</span><span class="z-constant z-language z-julia">π</span><span class="z-keyword z-operator z-julia">*</span>η<span class="z-keyword z-operator z-julia">/</span><span class="z-constant z-numeric z-julia">2</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">*</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>abs<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>gamma<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>ℓ<span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span><span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>η<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">/</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>factorial<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">2</span><span class="z-keyword z-operator z-julia">*</span>ℓ<span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-keyword z-other z-julia">end</span></span>
+</span><span class="z-source z-julia">
+</span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-keyword z-declaration z-function z-julia">function</span> <span class="z-entity z-name z-function z-julia"><span class="z-meta z-generic-name z-julia">irregular_coulomb</span></span><span class="z-punctuation z-section z-parameters z-end z-julia">(</span><span class="z-meta z-function z-parameters z-julia">ℓ<span class="z-punctuation z-separator z-parameters z-julia">,</span>η<span class="z-punctuation z-separator z-parameters z-julia">,</span>ρ<span class="z-punctuation z-section z-parameters z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    First <span class="z-keyword z-operator z-assignment z-julia">=</span> exp<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-keyword z-operator z-julia">-</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>ρ<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">*</span>ρ<span class="z-keyword z-operator z-julia">^</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-keyword z-operator z-julia">-</span>ℓ<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">/</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>factorial<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">2</span><span class="z-keyword z-operator z-julia">*</span>ℓ<span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">*</span>C<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>ℓ,η<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    Integral_value <span class="z-keyword z-operator z-assignment z-julia">=</span> complex_quadrature<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>t <span class="z-keyword z-operator z-julia">-&gt;</span> exp<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-keyword z-operator z-julia">-</span>t<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">*</span>t<span class="z-keyword z-operator z-julia">^</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-keyword z-operator z-julia">-</span>ℓ<span class="z-keyword z-operator z-julia">-</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>η<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">*</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>t<span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">2</span><span class="z-keyword z-operator z-julia">*</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>ρ<span class="z-punctuation z-section z-group z-end z-julia">)</span></span><span class="z-keyword z-operator z-julia">^</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>ℓ<span class="z-keyword z-operator z-julia">+</span><span class="z-constant z-numeric z-julia">1</span>im<span class="z-keyword z-operator z-julia">*</span>η<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>,<span class="z-constant z-numeric z-julia">0.01</span>,<span class="z-constant z-numeric z-julia">1e4</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia">    <span class="z-keyword z-other z-julia">return</span> First<span class="z-keyword z-operator z-broadcast z-julia">.</span><span class="z-keyword z-operator z-julia">*</span>Integral_value
+</span></span><span class="z-source z-julia"><span class="z-meta z-function z-julia"><span class="z-keyword z-other z-julia">end</span></span>
+</span></code></pre>
+<h3 id="examples">Examples<a class="zola-anchor" href="#examples" aria-label="Anchor link for: examples" style="visibility: hidden;"></a>
+</h3>
+<p>To test the implementation consider the following examples</p>
+<pre data-lang="julia" class="language-julia z-code"><code class="language-julia" data-lang="julia"><span class="z-source z-julia"><span class="z-keyword z-other z-julia">using</span> Plots, FewSpecialFunctions
+</span><span class="z-source z-julia">
+</span><span class="z-source z-julia">x <span class="z-keyword z-operator z-assignment z-julia">=</span> range<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">0</span>,<span class="z-constant z-numeric z-julia">25</span>,<span class="z-constant z-numeric z-julia">1000</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">plot<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>x,regular_Coulomb.<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">0</span>,<span class="z-constant z-numeric z-julia">0.3</span>,x<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>, label<span class="z-keyword z-operator z-assignment z-julia">=</span><span class="z-storage z-type z-string z-julia">L</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">F_0(0.3,ρ)<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">plot<span class="z-keyword z-operator z-julia">!</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>x,regular_Coulomb.<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">0</span>,<span class="z-keyword z-operator z-julia">-</span><span class="z-constant z-numeric z-julia">0.3</span>,x<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>, label<span class="z-keyword z-operator z-assignment z-julia">=</span><span class="z-storage z-type z-string z-julia">L</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">F_0(-0.3,ρ)<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">xlabel<span class="z-keyword z-operator z-julia">!</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-storage z-type z-string z-julia">L</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">ρ<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">title<span class="z-keyword z-operator z-julia">!</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">Regular Coulomb Wave Functions<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></code></pre>
+<p>Which will show the following</p>
+<figure>
+  <img src="/assets/Coulomb1.png" alt="Poster" title="Poster at Dansk Fysisk Selskab" width="500">
+  <figcaption>Coulomb wave functions</figcaption>
+</figure>
+Use a similar approach to plot the regular Coulomb functions for different a $\ell$
+<pre data-lang="julia" class="language-julia z-code"><code class="language-julia" data-lang="julia"><span class="z-source z-julia"><span class="z-keyword z-other z-julia">using</span> Plots, FewSpecialFunctions
+</span><span class="z-source z-julia">
+</span><span class="z-source z-julia">x <span class="z-keyword z-operator z-assignment z-julia">=</span> range<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">0</span>,<span class="z-constant z-numeric z-julia">25</span>,<span class="z-constant z-numeric z-julia">1000</span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">plot<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>x,regular_Coulomb.<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">1e-5</span>,<span class="z-constant z-numeric z-julia">5</span>,x<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>, label<span class="z-keyword z-operator z-assignment z-julia">=</span><span class="z-storage z-type z-string z-julia">L</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">F_0(5,ρ)<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">plot<span class="z-keyword z-operator z-julia">!</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>x,regular_Coulomb.<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">1</span>,<span class="z-constant z-numeric z-julia">5</span>,x<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>, label<span class="z-keyword z-operator z-assignment z-julia">=</span><span class="z-storage z-type z-string z-julia">L</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">F_1(5,ρ)<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">plot<span class="z-keyword z-operator z-julia">!</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>x,regular_Coulomb.<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">2</span>,<span class="z-constant z-numeric z-julia">5</span>,x<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>, label<span class="z-keyword z-operator z-assignment z-julia">=</span><span class="z-storage z-type z-string z-julia">L</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">F_2(5,ρ)<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">plot<span class="z-keyword z-operator z-julia">!</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span>x,regular_Coulomb.<span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-constant z-numeric z-julia">3</span>,<span class="z-constant z-numeric z-julia">5</span>,x<span class="z-punctuation z-section z-group z-end z-julia">)</span></span>, label<span class="z-keyword z-operator z-assignment z-julia">=</span><span class="z-storage z-type z-string z-julia">L</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">F_3(5,ρ)<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">title<span class="z-keyword z-operator z-julia">!</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">Regular Coulomb Wave Functions<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span><span class="z-source z-julia">xlabel<span class="z-keyword z-operator z-julia">!</span><span class="z-meta z-group z-julia"><span class="z-punctuation z-section z-group z-begin z-julia">(</span><span class="z-storage z-type z-string z-julia">L</span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia"><span class="z-punctuation z-definition z-string z-begin z-julia">&quot;</span></span></span><span class="z-meta z-string z-julia"><span class="z-string z-quoted z-double z-julia">ρ<span class="z-punctuation z-definition z-string z-end z-julia">&quot;</span></span></span><span class="z-punctuation z-section z-group z-end z-julia">)</span></span>
+</span></code></pre>
+<figure>
+  <img src="/assets/Coulomb1.png" alt="Poster" title="Poster at Dansk Fysisk Selskab" width="500">
+  <figcaption>Coulomb wave functions for different angular momenta</figcaption>
+</figure>
+
+      </article>
+
+      
+      
+
+      
+      
+    </div>
+
+    <footer>
+  <div class="copyright">
+    <p>© 2025 Martin Mikkelsen</p>
+
+  </div>
+  
+</footer>
+  </main>
+</div>
+
+  
+<script src="/js/lightense.min.js"></script>
+
+
+  <script src="/js/main.js"></script>
+</body>
+
+</html>
