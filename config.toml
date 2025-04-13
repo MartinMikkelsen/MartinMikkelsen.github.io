@@ -59,6 +59,7 @@ back_link_text = "Back" # Text of the back button
 
 links = [
     { name = "GitHub", icon = "github", url = "https://github.com/MartinMikkelsen" },
+    { name = "Google Scholar", icon = "cap", url = "https://scholar.google.com/citations?user=oLo9mS0AAAAJ&hl=da" },
     { name = "Email", icon = "email", url = "mailto:MartinMikkelsen@proton.me" },
     { name = "LinkedIn", icon = "linkedin", url = "https://www.linkedin.com/in/martinmikkelsen1/" }
 ]
