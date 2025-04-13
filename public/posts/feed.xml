@@ -2,16 +2,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>My Blog</title>
 	<subtitle>My blog site.</subtitle>
-	<link href="https://martinmikkelsen.github.io/posts/feed.xml" rel="self" type="application/atom+xml"/>
-    <link href="https://martinmikkelsen.github.io/posts/"/>
+	<link href="https://MartinMikkelsen.github.io/posts/feed.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://MartinMikkelsen.github.io/posts/"/>
 	<updated>2025-01-06T00:00:00+00:00</updated>
-	<id>https://martinmikkelsen.github.io/posts/feed.xml</id>
+	<id>https://MartinMikkelsen.github.io/posts/feed.xml</id>
 	<entry xml:lang="en">
 		<title>Poster at UiT</title>
 		<published>2025-01-06T00:00:00+00:00</published>
 		<updated>2025-01-06T00:00:00+00:00</updated>
-		<link href="https://martinmikkelsen.github.io/posts/uit/" type="text/html"/>
-		<id>https://martinmikkelsen.github.io/posts/uit/</id>
+		<link href="https://MartinMikkelsen.github.io/posts/uit/" type="text/html"/>
+		<id>https://MartinMikkelsen.github.io/posts/uit/</id>
 		<content type="html">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;a class=&quot;zola-anchor&quot; href=&quot;#introduction&quot; aria-label=&quot;Anchor link for: introduction&quot; style=&quot;visibility: hidden;&quot;&gt;&lt;&#x2F;a&gt;
 &lt;&#x2F;h3&gt;
 &lt;p&gt;I recently attended the Northern Lights Deep Learning (&lt;a rel=&quot;nofollow noreferrer&quot; href=&quot;https:&#x2F;&#x2F;www.nldl.org&#x2F;home&quot;&gt;NLDL&lt;&#x2F;a&gt;) conference at UiT in Tromsø, Norway. I presented a poster on my work on quantum-inspired machine learning, which is a new approach to solving partial differential equations using tensor networks and machine learning techniques&lt;&#x2F;p&gt;
@@ -27,8 +27,8 @@
 		<title>Julia package for some special functions</title>
 		<published>2023-01-26T00:00:00+00:00</published>
 		<updated>2023-01-26T00:00:00+00:00</updated>
-		<link href="https://martinmikkelsen.github.io/posts/fewspecialfunctions/" type="text/html"/>
-		<id>https://martinmikkelsen.github.io/posts/fewspecialfunctions/</id>
+		<link href="https://MartinMikkelsen.github.io/posts/fewspecialfunctions/" type="text/html"/>
+		<id>https://MartinMikkelsen.github.io/posts/fewspecialfunctions/</id>
 		<content type="html">&lt;p&gt;I implemented a few special functions in Julia that I had to use for my master&#x27;s thesis&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;fewspecialfunctions-jl&quot;&gt;FewSpecialFunctions.jl&lt;a class=&quot;zola-anchor&quot; href=&quot;#fewspecialfunctions-jl&quot; aria-label=&quot;Anchor link for: fewspecialfunctions-jl&quot; style=&quot;visibility: hidden;&quot;&gt;&lt;&#x2F;a&gt;
 &lt;&#x2F;h2&gt;
@@ -76,8 +76,8 @@
 		<title>Paper published</title>
 		<published>2022-12-12T00:00:00+00:00</published>
 		<updated>2022-12-12T00:00:00+00:00</updated>
-		<link href="https://martinmikkelsen.github.io/posts/paper1/" type="text/html"/>
-		<id>https://martinmikkelsen.github.io/posts/paper1/</id>
+		<link href="https://MartinMikkelsen.github.io/posts/paper1/" type="text/html"/>
+		<id>https://MartinMikkelsen.github.io/posts/paper1/</id>
 		<content type="html">&lt;h3 id=&quot;abstract&quot;&gt;Abstract&lt;a class=&quot;zola-anchor&quot; href=&quot;#abstract&quot; aria-label=&quot;Anchor link for: abstract&quot; style=&quot;visibility: hidden;&quot;&gt;&lt;&#x2F;a&gt;
 &lt;&#x2F;h3&gt;
 &lt;p&gt;We apply the nuclear model with explicit mesons to photoproduction of neutral pions off protons at the threshold. In this model the nucleons do not interact with each other via a potential but rather emit and absorb mesons that are treated explicitly on equal footing with the nucleons. We calculate the total cross section of the reaction for energies close to threshold and compare the calculations with available experimental data. We show that the model is able to reproduce the experimental data and determine the range of the parameters where the model is compatible with the experiment.&lt;&#x2F;p&gt;
@@ -96,11 +96,11 @@
 		<title>Numerical implementation of the Coulomb wave functions</title>
 		<published>2022-11-25T00:00:00+00:00</published>
 		<updated>2022-11-25T00:00:00+00:00</updated>
-		<link href="https://martinmikkelsen.github.io/posts/coulomb/" type="text/html"/>
-		<id>https://martinmikkelsen.github.io/posts/coulomb/</id>
+		<link href="https://MartinMikkelsen.github.io/posts/coulomb/" type="text/html"/>
+		<id>https://MartinMikkelsen.github.io/posts/coulomb/</id>
 		<content type="html">&lt;h2 id=&quot;coulomb-wave-funcitons&quot;&gt;Coulomb Wave Funcitons&lt;a class=&quot;zola-anchor&quot; href=&quot;#coulomb-wave-funcitons&quot; aria-label=&quot;Anchor link for: coulomb-wave-funcitons&quot; style=&quot;visibility: hidden;&quot;&gt;&lt;&#x2F;a&gt;
 &lt;&#x2F;h2&gt;
-&lt;p&gt;As a part of my master&#x27;s thesis I had to make a numerical implementation of the Coulomb wave functions. The Coulomb wave equation for a charged particle with arbitrary angular momentum and charge is given by $$ \nabla^2\psi +\left( k^2-\frac{2\mu}{\hbar^2}V(r)\right)\psi = 0, $$ where $\mu$ is the reduced mass of the system. The radial wave function $u(r)$ satisfies the following differential equation $$ \frac{\text{d}^2 u_\ell}{\text{d}r^2}+\left( k^2-\frac{\ell(\ell+1)}{r^2}-\frac{2\mu}{\hbar^2}\frac{Ze^2}{r}\right)u_\ell=0, $$ where $Z$ is the product of the charges. Two independent solutions can be found to this equation -- these are called the regular and irregular Coulomb wave functions denoted $F_\ell(r)$ and $G_\ell(r)$ respectively. The regular Coulomb wave function $F_\ell(r)$ is a real function that vanishes at $r=0$ and the behaviour of the function is described using a parameter $\eta$ which describes how strongly the Coulomb interaction is $$ \eta = \frac{Zmc\alpha }{\hbar k}, $$ where $m$ is the mass of the particle, $k$ is the wave number and $\alpha$ is the fine structure constant. The solution to is given by $$ F_\ell(\eta,kr) = C_\ell (\eta) (kr)^{\ell+1}\text{e}^{-ikr} {}1 F_1(\ell+1-i\eta,2\ell+2,2ikr), $$ where ${}1F_1(kr)$ is a confluent hypergeometric function and $C\ell(\eta)$ is a normalization constant given by $$ C\ell(\eta) = \frac{2^\ell \text{e}^{-\pi\eta&#x2F;2}|\Gamma(\ell+1+i\eta)|}{(2\ell+1)!}, $$ where $\Gamma$ is the gamma function. For numerical purposes, it is useful to use the integral representation of the regular Coulomb wave function $$ F_\ell(\eta,\rho) = \frac{\rho^{\ell+1}2^\ell e^{i\rho-(\pi\eta&#x2F;2)}}{|\Gamma(\ell+1+i\eta)|} \int_0^1 e^{-2i\rho t}t^{\ell+i\eta}(1-t)^{\ell-i\eta} , \text{d}t. $$&lt;&#x2F;p&gt;
+&lt;p&gt;As a part of my master&#x27;s thesis I had to make a numerical implementation of the Coulomb wave functions. The Coulomb wave equation for a charged particle with arbitrary angular momentum and charge is given by $$ \nabla^2\psi +\left( k^2-\frac{2\mu}{\hbar^2}V(r)\right)\psi = 0, $$ where $\mu$ is the reduced mass of the system. The radial wave function $u(r)$ satisfies the following differential equation $$ \frac{\text{d}^2 u_\ell}{\text{d}r^2}+\left( k^2-\frac{\ell(\ell+1)}{r^2}-\frac{2\mu}{\hbar^2}\frac{Ze^2}{r}\right)u_\ell=0, $$ where $Z$ is the product of the charges. Two independent solutions can be found to this equation -- these are called the regular and irregular Coulomb wave functions denoted $F_\ell(r)$ and $G_\ell(r)$ respectively. The regular Coulomb wave function $F_\ell(r)$ is a real function that vanishes at $r=0$ and the behaviour of the function is described using a parameter $\eta$ which describes how strongly the Coulomb interaction is $$ \eta = \frac{Zmc\alpha }{\hbar k}, $$ where $m$ is the mass of the particle, $k$ is the wave number and $\alpha$ is the fine structure constant. The solution to is given by $$ F_\ell(\eta,kr) = C_\ell (\eta) (kr)^{\ell+1}\text{e}^{-ikr} {}1 F_1(\ell+1-i\eta,2\ell+2,2ikr), $$ where ${}1F_1(kr)$ is a confluent hypergeometric function and $C_\ell(\eta)$ is a normalization constant given by $$ C\ell(\eta) = \frac{2^\ell \text{e}^{-\pi\eta&#x2F;2}|\Gamma(\ell+1+i\eta)|}{(2\ell+1)!}, $$ where $\Gamma$ is the gamma function. For numerical purposes, it is useful to use the integral representation of the regular Coulomb wave function $$ F_\ell(\eta,\rho) = \frac{\rho^{\ell+1}2^\ell e^{i\rho-(\pi\eta&#x2F;2)}}{|\Gamma(\ell+1+i\eta)|} \int_0^1 e^{-2i\rho t}t^{\ell+i\eta}(1-t)^{\ell-i\eta} , \text{d}t. $$&lt;&#x2F;p&gt;
 &lt;p&gt;This implementation will need the gamma function from &lt;a rel=&quot;nofollow noreferrer&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;JuliaMath&#x2F;SpecialFunctions.jl&quot;&gt;SpecialFunctions.jl&lt;&#x2F;a&gt;. First we define complex integration&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;julia&quot; class=&quot;language-julia z-code&quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;z-source z-julia&quot;&gt;&lt;span class=&quot;z-keyword z-other z-julia&quot;&gt;using&lt;&#x2F;span&gt; QuadGK, SpecialFunctions, Plots
 &lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-julia&quot;&gt;
@@ -146,7 +146,7 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Which will show the following&lt;&#x2F;p&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;&#x2F;assets&#x2F;Coulomb1.png&quot; alt=&quot;Poster&quot; title=&quot;Poster at Dansk Fysisk Selskab&quot; width=&quot;500&quot;&gt;
+  &lt;img src=&quot;&#x2F;assets&#x2F;Coulomb1.png&quot; alt=&quot;Poster&quot; title=&quot;Coulomb wave functions&quot; width=&quot;500&quot;&gt;
   &lt;figcaption&gt;Coulomb wave functions&lt;&#x2F;figcaption&gt;
 &lt;&#x2F;figure&gt;
 Use a similar approach to plot the regular Coulomb functions for different a $\ell$
@@ -161,7 +161,7 @@ Use a similar approach to plot the regular Coulomb functions for different a $\e
 &lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-julia&quot;&gt;xlabel&lt;span class=&quot;z-keyword z-operator z-julia&quot;&gt;!&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-julia&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-julia&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-storage z-type z-string z-julia&quot;&gt;L&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-julia&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-julia&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-julia&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-julia&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-julia&quot;&gt;ρ&lt;span class=&quot;z-punctuation z-definition z-string z-end z-julia&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-julia&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;&#x2F;assets&#x2F;Coulomb1.png&quot; alt=&quot;Poster&quot; title=&quot;Poster at Dansk Fysisk Selskab&quot; width=&quot;500&quot;&gt;
+  &lt;img src=&quot;&#x2F;assets&#x2F;Coulomb2.png&quot; alt=&quot;Poster&quot; title=&quot;Different angular momenta&quot; width=&quot;500&quot;&gt;
   &lt;figcaption&gt;Coulomb wave functions for different angular momenta&lt;&#x2F;figcaption&gt;
 &lt;&#x2F;figure&gt;
 </content>
@@ -170,8 +170,8 @@ Use a similar approach to plot the regular Coulomb functions for different a $\e
 		<title>Poster at Dansk Fysisk Selskab</title>
 		<published>2022-11-23T00:00:00+00:00</published>
 		<updated>2022-11-23T00:00:00+00:00</updated>
-		<link href="https://martinmikkelsen.github.io/posts/dfs/" type="text/html"/>
-		<id>https://martinmikkelsen.github.io/posts/dfs/</id>
+		<link href="https://MartinMikkelsen.github.io/posts/dfs/" type="text/html"/>
+		<id>https://MartinMikkelsen.github.io/posts/dfs/</id>
 		<content type="html">&lt;figure&gt;
   &lt;img src=&quot;&#x2F;assets&#x2F;PhotoproductionPoster.png&quot; alt=&quot;Poster&quot; title=&quot;Poster at Dansk Fysisk Selskab&quot; width=&quot;800&quot;&gt;
   &lt;figcaption&gt;Poster at Dansk Fysisk Selskab on a nuclear model with explicit mesons&lt;&#x2F;figcaption&gt;
@@ -181,8 +181,8 @@ Use a similar approach to plot the regular Coulomb functions for different a $\e
 		<title>Master&#x27;s thesis in nuclear physics</title>
 		<published>2022-11-20T00:00:00+00:00</published>
 		<updated>2022-11-20T00:00:00+00:00</updated>
-		<link href="https://martinmikkelsen.github.io/posts/mastersthesis/" type="text/html"/>
-		<id>https://martinmikkelsen.github.io/posts/mastersthesis/</id>
+		<link href="https://MartinMikkelsen.github.io/posts/mastersthesis/" type="text/html"/>
+		<id>https://MartinMikkelsen.github.io/posts/mastersthesis/</id>
 		<content type="html">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;a class=&quot;zola-anchor&quot; href=&quot;#introduction&quot; aria-label=&quot;Anchor link for: introduction&quot; style=&quot;visibility: hidden;&quot;&gt;&lt;&#x2F;a&gt;
 &lt;&#x2F;h3&gt;
 &lt;p&gt;This thesis presents a study on pion photoproduction off nucleons near the threshold, utilizing a nuclear model that incorporates explicit mesons. The approach deviates from conventional potential-based interactions between nucleons, focusing instead on meson emissions and absorptions.&lt;&#x2F;p&gt;
