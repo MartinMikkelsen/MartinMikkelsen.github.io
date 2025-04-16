@@ -23,5 +23,8 @@ reaction = false
 - AI DevOps Engineer  
 - Data Scientist  
 - Personal assistant, Center of Functionally Integrative Neuroscience, Aarhus University  
-- Teaching assistant, Department of Physics and Astronomy, Aarhus University
-:
+
+## Teaching
+
+- Machine Learning, Department of Computer Science, University of Copenhagen
+- Special Relativity and Astrophysics, Department of Physics and Astronomy, Aarhus University
