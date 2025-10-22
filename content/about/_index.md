@@ -26,5 +26,15 @@ reaction = false
 
 ## Teaching
 
-- Machine Learning, Department of Computer Science, University of Copenhagen
-- Special Relativity and Astrophysics, Department of Physics and Astronomy, Aarhus University
+#### University of Copenhagen
+
+- Machine learning A, Department of Computer Science, Fall 2024
+- Machine learning A, Department of Computer Science, Fall 2025
+
+#### Aarhus University 
+
+- Special Relativity and Astrophysics, Department of Physics and Astronomy
+
+## Supervision of Students
+
+- Efficient quantized tensor train representations of images, M.Sc. thesis Youya Xu
