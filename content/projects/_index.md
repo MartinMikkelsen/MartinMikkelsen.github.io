@@ -11,6 +11,7 @@ lang = 'en'
 ## 2025
 
 - [Fast and Flexible Quantum-Inspired PDE Solvers with Data Integration](https://arxiv.org/pdf/2505.17046)
+- [A tensor-train multidimensional inverse Laplace transform](https://arxiv.org/abs/2606.06093)
 
 ## 2022
 - [Threshold photoproduction of neutral pions off protons in nuclear model with explicit mesons](https://link.springer.com/article/10.1007/s00601-022-01783-9)
