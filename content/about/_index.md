@@ -38,3 +38,4 @@ reaction = false
 ## Supervision of Students
 
 - Efficient quantized tensor train representations of images, M.Sc. thesis Youya Xu
+- Benchmarking and Optimizing Parallel Inference for Vision-Language Models, M.Sc. thesis Aske Schrader Hougaard
