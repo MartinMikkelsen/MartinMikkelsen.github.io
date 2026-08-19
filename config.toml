@@ -37,7 +37,7 @@ anchors = "on"
 name = "Martin Mikkelsen"
 id = "Martin"
 bio = "PhD student @ University of Copenhagen"
-email_text = "MartinMikkelsen<at.sign>di.ku.dk"
+email_text = "Martin.Mikkelsen<at.sign>di.ku.dk"
 avatar = "img/avatar.webp"
 
 display_id = false
