@@ -37,6 +37,7 @@ anchors = "on"
 name = "Martin Mikkelsen"
 id = "Martin"
 bio = "PhD student @ University of Copenhagen"
+email_text = "MartinMikkelsen<at.sign>di.ku.dk"
 avatar = "img/avatar.webp"
 
 display_id = false
@@ -85,7 +86,7 @@ reaction_align = "right"              # "left" | "center" | "right"
 reaction_endpoint = "https://example.com/api/reaction"
 
 
-footer_copyright = "© 2025 Martin Mikkelsen"
+footer_copyright = "© 2026 Martin Mikkelsen"
 
 not_found_title = "404"
 not_found_error_text = "404 Not Found"

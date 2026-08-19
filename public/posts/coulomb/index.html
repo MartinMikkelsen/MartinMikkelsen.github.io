@@ -16,7 +16,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+
   <style>
 
   /* light mode colors */
@@ -57,8 +60,10 @@
 
   /* typography */
   body {
-    --main-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /* "JetBrainsMono Nerd Font" is the locally installed patched build; the
+       Google Fonts webfont "JetBrains Mono" covers visitors without it. */
+    --main-font: "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --code-font: "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --homepage-max-width: 768px;
     --main-max-width: 768px;
     --avatar-size: 56px;
@@ -76,6 +81,21 @@
     --block-code-border-radius: 0px;
     --block-code-border-color: var(--primary-color);
     --detail-border-color: var(--primary-color);
+  }
+
+  #email {
+    color: var(--text-pale-color);
+    margin-top: 0.3em;
+  }
+
+  /* Publication and code list entries: title link above, description below. */
+  .prose li .entry-desc {
+    display: block;
+    margin-top: 0.4em;
+  }
+
+  .prose li:has(.entry-desc) {
+    margin-bottom: 0.8em;
   }
 
 </style>
@@ -130,7 +150,7 @@
       <ul>
         
         <li>
-          <a class="h2" href="#coulomb-wave-funcitons">Coulomb Wave Funcitons</a>
+          <a class="h2" href="#coulomb-wave-functions">Coulomb Wave Functions</a>
           
           <ul>
             
@@ -183,7 +203,7 @@
 
         
 
-        <h2 id="coulomb-wave-funcitons">Coulomb Wave Funcitons<a class="zola-anchor" href="#coulomb-wave-funcitons" aria-label="Anchor link for: coulomb-wave-funcitons" style="visibility: hidden;"></a>
+        <h2 id="coulomb-wave-functions">Coulomb Wave Functions<a class="zola-anchor" href="#coulomb-wave-functions" aria-label="Anchor link for: coulomb-wave-functions" style="visibility: hidden;"></a>
 </h2>
 <p>As a part of my master's thesis I had to make a numerical implementation of the Coulomb wave functions. The Coulomb wave equation for a charged particle with arbitrary angular momentum and charge is given by $$ \nabla^2\psi +\left( k^2-\frac{2\mu}{\hbar^2}V(r)\right)\psi = 0, $$ where $\mu$ is the reduced mass of the system. The radial wave function $u(r)$ satisfies the following differential equation $$ \frac{\text{d}^2 u_\ell}{\text{d}r^2}+\left( k^2-\frac{\ell(\ell+1)}{r^2}-\frac{2\mu}{\hbar^2}\frac{Ze^2}{r}\right)u_\ell=0, $$ where $Z$ is the product of the charges. Two independent solutions can be found to this equation -- these are called the regular and irregular Coulomb wave functions denoted $F_\ell(r)$ and $G_\ell(r)$ respectively. The regular Coulomb wave function $F_\ell(r)$ is a real function that vanishes at $r=0$ and the behaviour of the function is described using a parameter $\eta$ which describes how strongly the Coulomb interaction is $$ \eta = \frac{Zmc\alpha }{\hbar k}, $$ where $m$ is the mass of the particle, $k$ is the wave number and $\alpha$ is the fine structure constant. The solution to is given by $$ F_\ell(\eta,kr) = C_\ell (\eta) (kr)^{\ell+1}\text{e}^{-ikr} {}1 F_1(\ell+1-i\eta,2\ell+2,2ikr), $$ where ${}1F_1(kr)$ is a confluent hypergeometric function and $C_\ell(\eta)$ is a normalization constant given by $$ C_\ell(\eta) = \frac{2^\ell \text{e}^{-\pi\eta/2}|\Gamma(\ell+1+i\eta)|}{(2\ell+1)!}, $$ where $\Gamma$ is the gamma function. For numerical purposes, it is useful to use the integral representation of the regular Coulomb wave function $$ F_\ell(\eta,\rho) = \frac{\rho^{\ell+1}2^\ell e^{i\rho-(\pi\eta/2)}}{|\Gamma(\ell+1+i\eta)|} \int_0^1 e^{-2i\rho t}t^{\ell+i\eta}(1-t)^{\ell-i\eta}  \text{d}t. $$</p>
 <p>This implementation will need the gamma function from <a rel="nofollow noreferrer" href="https://github.com/JuliaMath/SpecialFunctions.jl">SpecialFunctions.jl</a>. First we define complex integration</p>
@@ -261,7 +281,7 @@ Use a similar approach to plot the regular Coulomb functions for different a $\e
 
     <footer>
   <div class="copyright">
-    <p>© 2025 Martin Mikkelsen</p>
+    <p>© 2026 Martin Mikkelsen</p>
 
   </div>
   

@@ -13,7 +13,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+
   <style>
 
   /* light mode colors */
@@ -54,8 +57,10 @@
 
   /* typography */
   body {
-    --main-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /* "JetBrainsMono Nerd Font" is the locally installed patched build; the
+       Google Fonts webfont "JetBrains Mono" covers visitors without it. */
+    --main-font: "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --code-font: "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --homepage-max-width: 768px;
     --main-max-width: 768px;
     --avatar-size: 56px;
@@ -73,6 +78,21 @@
     --block-code-border-radius: 0px;
     --block-code-border-color: var(--primary-color);
     --detail-border-color: var(--primary-color);
+  }
+
+  #email {
+    color: var(--text-pale-color);
+    margin-top: 0.3em;
+  }
+
+  /* Publication and code list entries: title link above, description below. */
+  .prose li .entry-desc {
+    display: block;
+    margin-top: 0.4em;
+  }
+
+  .prose li:has(.entry-desc) {
+    margin-bottom: 0.8em;
   }
 
 </style>
@@ -111,6 +131,9 @@
         </div>
         
         <div id="bio"> PhD student @ University of Copenhagen </div>
+        
+        
+        <div id="email">MartinMikkelsen&lt;at.sign&gt;di.ku.dk</div>
         
       </div>
     </section>

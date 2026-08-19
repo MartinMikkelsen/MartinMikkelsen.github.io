@@ -34,6 +34,9 @@
         {% if config.extra.display_bio %}
         <div id="bio"> {{ config.extra.bio }} </div>
         {% endif %}
+        {% if config.extra.email_text %}
+        <div id="email">{{ config.extra.email_text }}</div>
+        {% endif %}
       </div>
     </section>
     <section id="links">
