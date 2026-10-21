@@ -39,3 +39,8 @@ reaction = false
 
 - Efficient quantized tensor train representations of images, M.Sc. thesis Youya Xu
 - Benchmarking and Optimizing Parallel Inference for Vision-Language Models, M.Sc. thesis Aske Schrader Hougaard
+
+## Organization of Scientific Meetings
+
+- Co-organizer, [Computational Physics Minisymposium 2026](https://pretalx.com/juliacon-2026/talk/review/VT9VMC37ESC3D3NTDJD3LGXLKBSCBB8G), JuliaCon 2026  
+  The minisymposium covers numerical methods, algorithms, and software for modeling and simulation in theoretical and computational physics, including testing and benchmarking, with a focus on methods shared across subfields.
