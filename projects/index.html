@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  
+  
+    
+  
+  <meta name="description" content="PhD student @ University of Copenhagen">
+
+  <title>Publications</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+
+  <style>
+
+  /* light mode colors */
+  body {
+    --primary-color: #5871a2;
+    --primary-pale-color: #5871a210;
+    --text-color: #3C4043;
+    --text-pale-color: #a3a5a9;
+    --bg-color: #ffffff;
+    --highlight-mark-color: #5f75b035;
+    --blockquote-color: #8e8d91;
+
+    --callout-note-color: #5871a2;
+    --callout-important-color: #8062b0;
+    --callout-warning-color: #936e51;
+    --callout-alert-color: #bc5252;
+    --callout-question-color: #477389;
+    --callout-tip-color: #3c8460;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #5d77ac;
+    --primary-pale-color: #5d77ac20;
+    --text-color: #9197a5;
+    --text-pale-color: #656a74;
+    --bg-color: #18191b;
+    --highlight-mark-color: #5f75b035;
+    --blockquote-color: #747983;
+
+    --callout-note-color: #5d77ac;
+    --callout-important-color: #8062b0;
+    --callout-warning-color: #936e51;
+    --callout-alert-color: #bc5252;
+    --callout-question-color: #477389;
+    --callout-tip-color: #3c8460;
+  }
+
+  /* typography */
+  body {
+    /* "JetBrainsMono Nerd Font" is the locally installed patched build; the
+       Google Fonts webfont "JetBrains Mono" covers visitors without it. */
+    --main-font: "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --code-font: "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --homepage-max-width: 768px;
+    --main-max-width: 768px;
+    --avatar-size: 56px;
+    --homepage-font-size: 16px;
+    --homepage-line-height: 1.75;
+    --paragraph-font-size: 16px;
+    --paragraph-line-height: 1.75;
+    --aside-font-size: 15px;
+    --img-border-radius: 0px;
+    --detail-border-radius: 0px;
+    --dark-mode-img-brightness: 0.75;
+    --dark-mode-chart-brightness: 0.75;
+    --inline-code-border-radius: 2px;
+    --inline-code-bg-color: var(--primary-pale-color);
+    --block-code-border-radius: 0px;
+    --block-code-border-color: var(--primary-color);
+    --detail-border-color: var(--primary-color);
+  }
+
+  #email {
+    color: var(--text-pale-color);
+    margin-top: 0.3em;
+  }
+
+  /* Publication and code list entries: title link above, description below. */
+  .prose li .entry-desc {
+    display: block;
+    margin-top: 0.4em;
+  }
+
+  .prose li:has(.entry-desc) {
+    margin-bottom: 0.8em;
+  }
+
+</style>
+
+  <link rel="stylesheet" href="/main.css">
+  
+
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+
+
+
+  
+</head>
+
+<body class="prose-page">
+  
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches
+    if ((theme && theme == 'dark') || (!theme && match)) {
+      document.body.classList.add('dark');
+      const hl = document.querySelector('link#hl');
+      if (hl) hl.href = '/hl-dark.css';
+    }
+  </script>
+  
+  
+<div id="wrapper">
+  <main>
+    
+<header>
+  <nav>
+    <a href="https:&#x2F;&#x2F;MartinMikkelsen.github.io">← Back</a>
+  </nav>
+</header>
+
+    
+
+    <div>
+      
+      <article class="prose">
+        <h3 id="publications">Publications</h3>
+<h2 id="2026">2026</h2>
+<ul>
+<li><a rel="nofollow noreferrer" href="https://arxiv.org/abs/2606.06093">A Tensor-Train Multidimensional Inverse Laplace Transform</a>
+<span class="entry-desc">Inverts multidimensional Laplace transforms in tensor-train format, cutting the cost from exponential to polynomial in the number of dimensions.</span></li>
+</ul>
+<h2 id="2025">2025</h2>
+<ul>
+<li><a rel="nofollow noreferrer" href="https://arxiv.org/pdf/2505.17046">Fast and Flexible Quantum-Inspired PDE Solvers with Data Integration</a>
+<span class="entry-desc">Solves linear and nonlinear PDEs in quantized tensor-train format with logarithmic memory and runtime, and adds a data-driven learning scheme.</span></li>
+</ul>
+<h2 id="2022">2022</h2>
+<ul>
+<li><a rel="nofollow noreferrer" href="https://link.springer.com/article/10.1007/s00601-022-01783-9">Threshold photoproduction of neutral pions off protons in nuclear model with explicit mesons</a>
+<span class="entry-desc">Computes near-threshold cross sections for neutral pion photoproduction in a model where nucleons emit and absorb mesons explicitly rather than interacting through a potential.</span></li>
+</ul>
+<h3 id="code">Code</h3>
+<ul>
+<li><a rel="nofollow noreferrer" href="https://github.com/MartinMikkelsen/FewSpecialFunctions.jl">FewSpecialFunctions.jl</a>
+<span class="entry-desc">Julia implementations of Coulomb wave, Clausen, Debye, Fresnel, parabolic cylinder, and Marcum-Q functions, plus Fermi-Dirac integrals and the Voigt profile.</span></li>
+<li><a rel="nofollow noreferrer" href="https://github.com/MartinMikkelsen/FewBodyPhysics.jl">FewBodyPhysics.jl</a>
+<span class="entry-desc">Variational solver for quantum few-body systems using explicitly correlated Gaussian basis functions.</span></li>
+<li><a rel="nofollow noreferrer" href="https://github.com/MartinMikkelsen/TensorTrainNumerics.jl">TensorTrainNumerics.jl</a>
+<span class="entry-desc">Numerical methods in tensor-train and quantics tensor-train format: linear solvers, eigenvalue problems, time evolution, and TT-cross approximation.</span></li>
+</ul>
+
+      </article>
+
+      
+      
+
+      
+    </div>
+
+    <footer>
+  <div class="copyright">
+    <p>© 2026 Martin Mikkelsen</p>
+
+  </div>
+  
+</footer>
+  </main>
+</div>
+
+  
+<script src="/js/lightense.min.js"></script>
+
+
+  <script src="/js/main.js"></script>
+</body>
+
+</html>
