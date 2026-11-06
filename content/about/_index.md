@@ -30,6 +30,7 @@ reaction = false
 
 - Machine learning A, Department of Computer Science, Fall 2024
 - Machine learning A, Department of Computer Science, Fall 2025
+- Machine learning A, Department of Computer Science, Fall 2026
 
 #### Aarhus University 
 
